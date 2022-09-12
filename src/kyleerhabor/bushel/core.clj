@@ -21,7 +21,4 @@
 (defn config
   ([srcs] (config srcs {}))
   ([srcs opts]
-   (merge (map #(if (coll? %)
-                  ;; Already good.
-                  %
-                  (src->edn % opts)) srcs))))
+   (merge (map #(src->edn % opts) srcs))))
